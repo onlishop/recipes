@@ -1,0 +1,15 @@
+{
+    "manifests": {
+        "onlishop/fixture-bundle": {
+            "manifest": {
+                "bundles": {
+                    "Onlishop\\FixtureBundle\\FixtureBundle": [
+                        "all"
+                    ]
+                }
+            },
+            "files": [],
+            "ref": "bb0b685a652f48be28cc8b02433fd648416a4445"
+        }
+    }
+}

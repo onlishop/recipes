@@ -1,0 +1,30 @@
+{
+    "manifests": {
+        "onlishop/opentelemetry": {
+            "manifest": {
+                "copy-from-recipe": {
+                    "config/": "%CONFIG_DIR%/"
+                },
+                "bundles": {
+                    "Onlishop\\OpenTelemetry\\OpenTelemetryOnlishopBundle": [
+                        "all"
+                    ]
+                }
+            },
+            "files": {
+                "config/packages/prod/opentelemetry.yaml": {
+                    "contents": [
+                        "# see https://github.com/onlishopLabs/opentelemetry/blob/main/README.md",
+                        "onlishop:",
+                        "    profiler:",
+                        "        integrations:",
+                        "            - OpenTelemetry",
+                        ""
+                    ],
+                    "executable": false
+                }
+            },
+            "ref": "7e1c9078db3201db506b50ee50a8bca38deb3bd2"
+        }
+    }
+}
