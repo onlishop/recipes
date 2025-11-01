@@ -134,9 +134,6 @@ jobs:
             -   name: Install Onlishop
                 run: ./bin/console system:install --basic-setup --create-database
 
-            - name: Generate demo data
-              run: ./bin/console framework:demodata -e prod
-
             - name: DAL refresh
               run: ./bin/console dal:refresh:index
 
