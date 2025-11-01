@@ -1,0 +1,10 @@
+{
+    "bundles": {
+        "Onlishop\\Administration\\Administration": [
+            "all"
+        ]
+    },
+    "copy-from-recipe": {
+        "bin/": "%BIN_DIR%/"
+    }
+}

@@ -1,0 +1,7 @@
+{
+    "bundles": {
+        "Onlishop\\FixtureBundle\\FixtureBundle": [
+            "all"
+        ]
+    }
+}

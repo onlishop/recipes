@@ -1,0 +1,5 @@
+# see https://github.com/onlishopLabs/opentelemetry/blob/main/README.md
+onlishop:
+    profiler:
+        integrations:
+            - OpenTelemetry
