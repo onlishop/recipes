@@ -12,10 +12,10 @@
                 },
                 "env": {
                     "OPENSEARCH_URL": "http://localhost:9200",
-                    "SHOPWARE_ES_ENABLED": "0",
-                    "SHOPWARE_ES_INDEXING_ENABLED": "0",
-                    "SHOPWARE_ES_INDEX_PREFIX": "sw",
-                    "SHOPWARE_ES_THROW_EXCEPTION": "1"
+                    "ONLISHOP_ES_ENABLED": "0",
+                    "ONLISHOP_ES_INDEXING_ENABLED": "0",
+                    "ONLISHOP_ES_INDEX_PREFIX": "sw",
+                    "ONLISHOP_ES_THROW_EXCEPTION": "1"
                 },
                 "container": {
                     "env(OPENSEARCH_URL)": "http://localhost:9200"
@@ -46,7 +46,7 @@
                 }
             },
             "files": [],
-            "ref": "012a4452b96f604e12a06eea689765969a586dba"
+            "ref": "acdb08f68ccefd65445f702cad3a4739c94619ef"
         }
     }
 }
