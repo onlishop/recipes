@@ -1,0 +1,42 @@
+{
+    "copy-from-recipe": {
+        "config/": "%CONFIG_DIR%/"
+    },
+    "bundles": {
+        "Onlishop\\Elasticsearch\\Elasticsearch": [
+            "all"
+        ]
+    },
+    "env": {
+        "OPENSEARCH_URL": "http://localhost:9200",
+        "ONLISHOP_ES_ENABLED": "0",
+        "ONLISHOP_ES_INDEXING_ENABLED": "0",
+        "ONLISHOP_ES_INDEX_PREFIX": "sw",
+        "ONLISHOP_ES_THROW_EXCEPTION": "1"
+    },
+    "container": {
+        "env(OPENSEARCH_URL)": "http://localhost:9200"
+    },
+    "docker-compose": {
+        "docker-compose.yml": {
+            "services": [
+                "opensearch:",
+                "  image: opensearchproject/opensearch:2",
+                "  volumes:",
+                "    - opensearch-data:/usr/share/opensearch/data",
+                "  environment:",
+                "    OPENSEARCH_INITIAL_ADMIN_PASSWORD: 'c3o_ZPHo!'",
+                "    discovery.type: single-node",
+                "    plugins.security.disabled: 'true'"
+            ],
+            "volumes": ["opensearch-data:"]
+        },
+        "docker-compose.override.yml": {
+            "services": [
+                "opensearch:",
+                "  ports:",
+                "    - \"9200\""
+            ]
+        }
+    }
+}

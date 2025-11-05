@@ -5,9 +5,6 @@ CWD="$(cd -P -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd -P)"
 
 export PROJECT_ROOT="${PROJECT_ROOT:-"$(dirname "$CWD")"}"
 export ENV_FILE=${ENV_FILE:-"${PROJECT_ROOT}/.env"}
-export NPM_CONFIG_FUND=false
-export NPM_CONFIG_AUDIT=false
-export NPM_CONFIG_UPDATE_NOTIFIER=false
 
 # shellcheck source=functions.sh
 source "${PROJECT_ROOT}/bin/functions.sh"
@@ -23,17 +20,15 @@ set +o allexport
 
 set -euo pipefail
 
-export APP_URL
-export PROJECT_ROOT
 export PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true
+export DISABLE_ADMIN_COMPILATION_TYPECHECK=true
+export PROJECT_ROOT="${PROJECT_ROOT:-"$(dirname "$CWD")"}"
 
 if [[ -e "${PROJECT_ROOT}/vendor/onlishop/platform" ]]; then
     ADMIN_ROOT="${ADMIN_ROOT:-"${PROJECT_ROOT}/vendor/onlishop/platform/src/Administration"}"
 else
     ADMIN_ROOT="${ADMIN_ROOT:-"${PROJECT_ROOT}/vendor/onlishop/administration"}"
 fi
-
-export ADMIN_ROOT
 
 BIN_TOOL="${CWD}/console"
 
@@ -53,11 +48,8 @@ if [[ $(command -v jq) ]]; then
     OLDPWD=$(pwd)
     cd "$PROJECT_ROOT" || exit
 
-    basePaths=()
-
-    while read -r config; do
+    jq -c '.[]' "var/plugins.json" | while read -r config; do
         srcPath=$(echo "$config" | jq -r '(.basePath + .administration.path)')
-        basePath=$(echo "$config" | jq -r '.basePath')
 
         # the package.json files are always one upper
         path=$(dirname "$srcPath")
@@ -69,35 +61,18 @@ if [[ $(command -v jq) ]]; then
             continue
         fi
 
-        if [[ -n $srcPath && ! " ${basePaths[*]:-} " =~ " ${basePath} " ]]; then
-            basePaths+=("$basePath")
-        fi
-
         if [[ -f "$path/package.json" && ! -d "$path/node_modules" && $name != "administration" ]]; then
             echo "=> Installing npm dependencies for ${name}"
 
-            (cd "$path" && npm install --omit=dev --no-audit --prefer-offline)
-        fi
-    done < <(jq -c '.[]' "var/plugins.json")
-
-    for basePath in "${basePaths[@]}"; do
-        if [[ -r "${basePath}/package.json" ]]; then
-            echo "=> Installing npm dependencies for ${basePath}"
-            (cd "${basePath}" && npm ci --omit=dev --no-audit --prefer-offline)
-        fi
-
-        if [[ -r "${basePath}/../package.json" ]]; then
-            echo "=> Installing npm dependencies for ${basePath}/.."
-            (cd "${basePath}/.." && npm ci --omit=dev --no-audit --prefer-offline)
+            npm install --prefix "$path" --no-audit --prefer-offline
         fi
     done
-
     cd "$OLDPWD" || exit
 else
     echo "Cannot check extensions for required npm installations as jq is not installed"
 fi
 
-(cd "${ADMIN_ROOT}"/Resources/app/administration && npm install --prefer-offline --omit=dev)
+(cd "${ADMIN_ROOT}"/Resources/app/administration && npm install --no-audit --prefer-offline)
 
 # Dump entity schema
 if [[ -z "${ONLISHOP_SKIP_ENTITY_SCHEMA_DUMP:-""}" ]] && [[ -f "${ADMIN_ROOT}"/Resources/app/administration/scripts/entitySchemaConverter/entity-schema-converter.ts ]]; then
