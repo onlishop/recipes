@@ -70,16 +70,12 @@
             "1.0"
         ],
         "onlishop/administration": [
-            "6.4",
-            "6.6",
             "6.7"
         ],
         "onlishop/core": [
             "6.7"
         ],
         "onlishop/docker": [
-            "0.1",
-            "0.2",
             "0.3"
         ],
         "onlishop/docker-dev": [
@@ -91,9 +87,6 @@
             "6.7"
         ],
         "onlishop/fastly-meta": [
-            "6.4",
-            "6.5",
-            "6.6",
             "6.7"
         ],
         "onlishop/fixture-bundle": [
@@ -107,14 +100,9 @@
             "0.1"
         ],
         "onlishop/paas-meta": [
-            "6.4",
-            "6.5",
-            "6.6",
             "6.7"
         ],
         "onlishop/platform": [
-            "6.4",
-            "6.6",
             "6.7"
         ],
         "onlishop/storefront": [
