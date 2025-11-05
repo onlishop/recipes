@@ -1,2 +1,0 @@
-* Before pushing the first time, make sure you did created the JWT keys and stored them as secrets:
-   * https://developer.onlishop.com/docs/v6.5/products/paas/build-deploy.html#jwt-keys

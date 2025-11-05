@@ -1,5 +1,0 @@
-parameters:
-    env(TRUSTED_PROXIES): ''
-
-framework:
-    trusted_proxies: '%env(TRUSTED_PROXIES)%'
