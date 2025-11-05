@@ -44,6 +44,6 @@ return RectorConfig::configure()
         LevelSetList::UP_TO_PHP_81,
         LevelSetList::UP_TO_PHP_82,
         LevelSetList::UP_TO_PHP_83,
-        OnlishopSetList::SHOPWARE_6_5_0,
-        OnlishopSetList::SHOPWARE_6_6_0,
+        OnlishopSetList::ONLISHOP_6_5_0,
+        OnlishopSetList::ONLISHOP_6_6_0,
     ]);

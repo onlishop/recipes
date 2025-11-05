@@ -12,20 +12,20 @@
             # Instance ID is empty by default, change to something unique in your project
             INSTANCE_ID: ""
             # Enable HTTP Cache to get cache-control headers
-            SHOPWARE_HTTP_CACHE_ENABLED: 1
+            ONLISHOP_HTTP_CACHE_ENABLED: 1
             # NVM and Node.js versions to install
             NVM_VERSION: v0.39.0
             NODE_VERSION: v18
             # Improve admin build speed
             DISABLE_ADMIN_COMPILATION_TYPECHECK: 1
             # Only build extension. Onlishop assets are pre built in the tags
-            SHOPWARE_ADMIN_BUILD_ONLY_EXTENSIONS: 1
+            ONLISHOP_ADMIN_BUILD_ONLY_EXTENSIONS: 1
             # Elasticsearch, see https://developer.onlishop.com/docs/guides/hosting/infrastructure/elasticsearch#activating-and-first-time-indexing
-            SHOPWARE_ES_ENABLED: 0
-            SHOPWARE_ES_INDEXING_ENABLED: 0
-            SHOPWARE_ES_INDEX_PREFIX: "sw6"
+            ONLISHOP_ES_ENABLED: 0
+            ONLISHOP_ES_INDEXING_ENABLED: 0
+            ONLISHOP_ES_INDEX_PREFIX: "sw6"
             # Disables the Onlishop web installer
-            SHOPWARE_SKIP_WEBINSTALLER: 1
+            ONLISHOP_SKIP_WEBINSTALLER: 1
         php:
             upload_max_filesize: 32M
             post_max_size: 32M
@@ -121,7 +121,7 @@
             cp build-plugins.json var/plugins.json
 
             echo "==================================================="
-            echo "INITIALIZE SHOPWARE'S SITE DATA IF NOT ALREADY INSTALLED"
+            echo "INITIALIZE ONLISHOP'S SITE DATA IF NOT ALREADY INSTALLED"
             echo "==================================================="
             # Initialize the Onlishop site's data set if it's not already installed.
             # (This is only for demo/first install and can be removed once Onlishop is initialized)

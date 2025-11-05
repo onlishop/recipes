@@ -16,7 +16,7 @@ if (!file_exists(__DIR__ . '/../.env') && !file_exists(__DIR__ . '/../.env.dist'
 return function (array $context) {
     $classLoader = require __DIR__ . '/../vendor/autoload.php';
 
-    if (!EnvironmentHelper::getVariable('SHOPWARE_SKIP_WEBINSTALLER', false) && !file_exists(dirname(__DIR__) . '/install.lock')) {
+    if (!EnvironmentHelper::getVariable('ONLISHOP_SKIP_WEBINSTALLER', false) && !file_exists(dirname(__DIR__) . '/install.lock')) {
         $baseURL = str_replace(basename(__FILE__), '', $_SERVER['SCRIPT_NAME']);
         $baseURL = rtrim($baseURL, '/');
 
@@ -29,7 +29,7 @@ return function (array $context) {
     $appEnv = $context['APP_ENV'] ?? 'dev';
     $debug = (bool) ($context['APP_DEBUG'] ?? ($appEnv !== 'prod'));
 
-    if (!EnvironmentHelper::getVariable('SHOPWARE_SKIP_WEBINSTALLER', false) && !file_exists(dirname(__DIR__) . '/install.lock')) {
+    if (!EnvironmentHelper::getVariable('ONLISHOP_SKIP_WEBINSTALLER', false) && !file_exists(dirname(__DIR__) . '/install.lock')) {
         return new InstallerKernel($appEnv, $debug);
     }
 

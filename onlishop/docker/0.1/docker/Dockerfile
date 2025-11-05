@@ -8,7 +8,7 @@ FROM ghcr.io/onlishop/onlishop-cli:latest-php-8.2 AS onlishop-cli
 
 FROM onlishop-cli AS build
 
-ARG SHOPWARE_PACKAGES_TOKEN
+ARG ONLISHOP_PACKAGES_TOKEN
 
 ADD . /src
 WORKDIR /src

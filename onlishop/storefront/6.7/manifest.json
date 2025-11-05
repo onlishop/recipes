@@ -9,7 +9,7 @@
     },
     "env": {
         "PROXY_URL": "http://localhost",
-        "SHOPWARE_HTTP_CACHE_ENABLED": "1",
-        "SHOPWARE_HTTP_DEFAULT_TTL": "7200"
+        "ONLISHOP_HTTP_CACHE_ENABLED": "1",
+        "ONLISHOP_HTTP_DEFAULT_TTL": "7200"
     }
 }

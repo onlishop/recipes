@@ -47,7 +47,7 @@
     "container": {
         "onlishop.store.frw": true,
         "default_cdn_strategy": "physical_filename",
-        "onlishop.cdn.strategy": "%env(default:default_cdn_strategy:SHOPWARE_CDN_STRATEGY_DEFAULT)%",
+        "onlishop.cdn.strategy": "%env(default:default_cdn_strategy:ONLISHOP_CDN_STRATEGY_DEFAULT)%",
         "env(OPENSEARCH_URL)": "http:\/\/localhost:9200"
     },
     "env": {
@@ -58,13 +58,13 @@
         "BLUE_GREEN_DEPLOYMENT": "0",
         "DATABASE_URL": "mysql:\/\/root:root@localhost\/onlishop",
         "PROXY_URL": "http:\/\/localhost",
-        "SHOPWARE_HTTP_CACHE_ENABLED": "1",
-        "SHOPWARE_HTTP_DEFAULT_TTL": "7200",
+        "ONLISHOP_HTTP_CACHE_ENABLED": "1",
+        "ONLISHOP_HTTP_DEFAULT_TTL": "7200",
         "OPENSEARCH_URL": "http:\/\/localhost:9200",
-        "SHOPWARE_ES_ENABLED": "0",
-        "SHOPWARE_ES_INDEXING_ENABLED": "0",
-        "SHOPWARE_ES_INDEX_PREFIX": "sw",
-        "SHOPWARE_ES_THROW_EXCEPTION": "1"
+        "ONLISHOP_ES_ENABLED": "0",
+        "ONLISHOP_ES_INDEXING_ENABLED": "0",
+        "ONLISHOP_ES_INDEX_PREFIX": "sw",
+        "ONLISHOP_ES_THROW_EXCEPTION": "1"
     },
     "gitignore": [
         ".env.local",

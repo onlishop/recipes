@@ -40,7 +40,7 @@ return static function (RectorConfig $rectorConfig): void {
         SymfonySetList::SYMFONY_CODE_QUALITY,
         SymfonySetList::ANNOTATIONS_TO_ATTRIBUTES,
         LevelSetList::UP_TO_PHP_81,
-        OnlishopSetList::SHOPWARE_6_5_0,
+        OnlishopSetList::ONLISHOP_6_5_0,
     ]);
 
     $rectorConfig->skip([

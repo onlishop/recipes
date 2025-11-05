@@ -39,6 +39,6 @@ return RectorConfig::configure()
         SymfonySetList::SYMFONY_CODE_QUALITY,
         SymfonySetList::ANNOTATIONS_TO_ATTRIBUTES,
         LevelSetList::UP_TO_PHP_83,
-        OnlishopSetList::SHOPWARE_6_5_0,
-        OnlishopSetList::SHOPWARE_6_6_0,
+        OnlishopSetList::ONLISHOP_6_5_0,
+        OnlishopSetList::ONLISHOP_6_6_0,
     ]);

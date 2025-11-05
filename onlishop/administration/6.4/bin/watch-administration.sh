@@ -25,7 +25,7 @@ export DISABLE_ADMIN_COMPILATION_TYPECHECK=1
 
 BIN_TOOL="${CWD}/console"
 
-[[ ${SHOPWARE_SKIP_BUNDLE_DUMP:-""} ]] || "${BIN_TOOL}" bundle:dump
+[[ ${ONLISHOP_SKIP_BUNDLE_DUMP:-""} ]] || "${BIN_TOOL}" bundle:dump
 "${BIN_TOOL}" feature:dump || true
 
 if [[ $(command -v jq) ]]; then
@@ -61,7 +61,7 @@ if [ ! -d vendor/onlishop/administration/Resources/app/administration/node_modul
 fi
 
 # Dump entity schema
-if [[ -z "${SHOPWARE_SKIP_ENTITY_SCHEMA_DUMP:-""}" ]] && [[ -f "${ADMIN_ROOT}"/Resources/app/administration/scripts/entitySchemaConverter/entity-schema-converter.ts ]]; then
+if [[ -z "${ONLISHOP_SKIP_ENTITY_SCHEMA_DUMP:-""}" ]] && [[ -f "${ADMIN_ROOT}"/Resources/app/administration/scripts/entitySchemaConverter/entity-schema-converter.ts ]]; then
   mkdir -p "${ADMIN_ROOT}"/Resources/app/administration/test/_mocks_
   "${BIN_TOOL}" -e prod framework:schema -s 'entity-schema' "${ADMIN_ROOT}"/Resources/app/administration/test/_mocks_/entity-schema.json
   (cd "${ADMIN_ROOT}"/Resources/app/administration && npm run convert-entity-schema)

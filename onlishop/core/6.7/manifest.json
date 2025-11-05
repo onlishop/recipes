@@ -38,7 +38,7 @@
     "container": {
         "onlishop.store.frw": true,
         "default_cdn_strategy": "physical_filename",
-        "onlishop.cdn.strategy": "%env(default:default_cdn_strategy:SHOPWARE_CDN_STRATEGY_DEFAULT)%"
+        "onlishop.cdn.strategy": "%env(default:default_cdn_strategy:ONLISHOP_CDN_STRATEGY_DEFAULT)%"
     },
     "env": {
         "APP_ENV": "prod",

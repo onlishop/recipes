@@ -28,8 +28,8 @@ if [[ ${CI:-""} ]]; then
 fi
 
 # build storefront
-[[ ${SHOPWARE_SKIP_BUNDLE_DUMP:-""} ]] || "${BIN_TOOL}" bundle:dump
-[[ ${SHOPWARE_SKIP_FEATURE_DUMP:-""} ]] || "${BIN_TOOL}" feature:dump
+[[ ${ONLISHOP_SKIP_BUNDLE_DUMP:-""} ]] || "${BIN_TOOL}" bundle:dump
+[[ ${ONLISHOP_SKIP_FEATURE_DUMP:-""} ]] || "${BIN_TOOL}" feature:dump
 
 if [[ $(command -v jq) ]]; then
     OLDPWD=$(pwd)
@@ -82,8 +82,8 @@ fi
 npm --prefix "${STOREFRONT_ROOT}"/Resources/app/storefront install --prefer-offline --omit=dev
 node "${STOREFRONT_ROOT}"/Resources/app/storefront/copy-to-vendor.js
 npm --prefix "${STOREFRONT_ROOT}"/Resources/app/storefront run production
-[[ ${SHOPWARE_SKIP_ASSET_COPY:-""} ]] ||"${BIN_TOOL}" assets:install
-[[ ${SHOPWARE_SKIP_THEME_COMPILE:-""} ]] || "${BIN_TOOL}" theme:compile --active-only
+[[ ${ONLISHOP_SKIP_ASSET_COPY:-""} ]] ||"${BIN_TOOL}" assets:install
+[[ ${ONLISHOP_SKIP_THEME_COMPILE:-""} ]] || "${BIN_TOOL}" theme:compile --active-only
 
 if ! [ "${1:-default}" = "--keep-cache" ]; then
     "${BIN_TOOL}" cache:clear

@@ -9,15 +9,15 @@
         env:
             APP_ENV: prod
             # Enable HTTP Cache to get cache-control headers
-            SHOPWARE_HTTP_CACHE_ENABLED: 1
+            ONLISHOP_HTTP_CACHE_ENABLED: 1
             NODE_VERSION: v20.18.0
-            SHOPWARE_CLI_VERSION: 0.4.62
+            ONLISHOP_CLI_VERSION: 0.4.62
             # Elasticsearch, see https://developer.onlishop.com/docs/guides/hosting/infrastructure/elasticsearch#activating-and-first-time-indexing
-            SHOPWARE_ES_ENABLED: 0
-            SHOPWARE_ES_INDEXING_ENABLED: 0
-            SHOPWARE_ES_INDEX_PREFIX: "sw6"
+            ONLISHOP_ES_ENABLED: 0
+            ONLISHOP_ES_INDEXING_ENABLED: 0
+            ONLISHOP_ES_INDEX_PREFIX: "sw6"
             # Disables the Onlishop web installer
-            SHOPWARE_SKIP_WEBINSTALLER: 1
+            ONLISHOP_SKIP_WEBINSTALLER: 1
             # Performance optimization
             COMPOSER_ROOT_VERSION: 1.0.0
         php:
@@ -48,13 +48,13 @@
     hooks:
         build: |
             set -e
-            echo "Installing Node ${NODE_VERSION} and onlishop-cli ${SHOPWARE_CLI_VERSION}"
+            echo "Installing Node ${NODE_VERSION} and onlishop-cli ${ONLISHOP_CLI_VERSION}"
 
             mkdir -p /tmp/tools
 
             curl -qL -s -o node.tar.xz "https://nodejs.org/dist/${NODE_VERSION}/node-${NODE_VERSION}-linux-x64.tar.xz"
             tar xf node.tar.xz -C /tmp/tools --strip-components=1
-            curl -qL -s -o onlishop-cli.tar.gz https://github.com/onlishop/onlishop-cli/releases/download/${SHOPWARE_CLI_VERSION}/onlishop-cli_Linux_x86_64.tar.gz
+            curl -qL -s -o onlishop-cli.tar.gz https://github.com/onlishop/onlishop-cli/releases/download/${ONLISHOP_CLI_VERSION}/onlishop-cli_Linux_x86_64.tar.gz
             tar xf onlishop-cli.tar.gz -C /tmp/tools onlishop-cli
             mv /tmp/tools/onlishop-cli /tmp/tools/bin
 

@@ -119,7 +119,7 @@ return static function (ECSConfig $ecsConfig): void {
         ],
     ]);
 
-    $ecsConfig->cacheDirectory($_SERVER['SHOPWARE_TOOL_CACHE_ECS'] ?? 'var/cache/cs_fixer');
+    $ecsConfig->cacheDirectory($_SERVER['ONLISHOP_TOOL_CACHE_ECS'] ?? 'var/cache/cs_fixer');
     $ecsConfig->cacheNamespace('platform');
 
     $ecsConfig->parallel();
