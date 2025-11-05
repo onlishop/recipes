@@ -113,6 +113,8 @@
             "6.7"
         ],
         "onlishop/platform": [
+            "6.4",
+            "6.6",
             "6.7"
         ],
         "onlishop/storefront": [
